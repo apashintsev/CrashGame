@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TestApp.Models
 {
-    public class CrashGame
+    public class Game
     {
         [Key]
         public int Id { get; set; }
@@ -18,6 +18,11 @@ namespace TestApp.Models
         public DateTime CompleteAt { get; set; }
 
         public List<CrashBet> Bets { get; set; }
+
+        public bool IsFinished()
+        {
+            return CompleteAt > DateTime.MinValue;
+        }
     }
 
     public class CrashBet

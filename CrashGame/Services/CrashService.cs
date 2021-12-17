@@ -21,13 +21,13 @@ namespace TestApp.Services
             _logger = logger;
         }
 
-        public async Task<CrashGame> CreateGame()
+        public async Task<Game> CreateGame()
         {
             try
             {
                 var mul = GenerateMultiplierForCrash();
 
-                var game = new CrashGame
+                var game = new Game
                 {
                     Multiplier = mul,
                 };
@@ -58,14 +58,14 @@ namespace TestApp.Services
             throw new NotImplementedException();
         }
 
-        public async Task<CrashGameResult> DetermineLosers(int gameId)
+        public async Task<CrashGameResult> StartGame(int gameId)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<CrashGame> GetCurrentGame()
+        public async Task<Game> GetCurrentGame()
         {
-            return await _appContext.CrashGames.OrderBy(x=>x.Id).LastOrDefaultAsync();
+            return await _appContext.CrashGames.OrderBy(x=>x.Id).Where(x=>!x.IsFinished()).LastOrDefaultAsync();
         }
 
 

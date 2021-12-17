@@ -20,6 +20,7 @@ using TestApp.Services;
 using TestApp.Models;
 using TestApp.Options;
 using TestApp.Services.Auth;
+using CrashGame;
 
 namespace TestApp
 {
@@ -49,6 +50,8 @@ namespace TestApp
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ICrashService, CrashService>();
+
+            services.AddHostedService<CrashTimeService>();
         }
 
         private void ConfigureAuthentication(IServiceCollection services)

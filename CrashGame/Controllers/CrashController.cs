@@ -51,10 +51,10 @@ namespace TestApp.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> DetermineLosers([FromBody] int gameId)
+        public async Task<IActionResult> StartGame([FromBody] int gameId)
         {
-            //определяет проигравших
-            return Ok(await _crashService.DetermineLosers(gameId));
+            //запускает игру, после того, как игра запущена, множитель начинает экспоненциальнорасти до указанного при создании игры
+            return Ok(await _crashService.StartGame(gameId));
         }
 
         [HttpGet]

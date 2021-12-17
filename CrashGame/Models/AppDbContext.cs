@@ -12,7 +12,7 @@ namespace TestApp.Models
         {
         }
 
-        public DbSet<CrashGame> CrashGames { get; set; }
+        public DbSet<Game> CrashGames { get; set; }
         public DbSet<CrashGameResult> CrashGameResults { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)

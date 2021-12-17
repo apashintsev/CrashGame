@@ -6,9 +6,9 @@ namespace TestApp.Services
     public interface ICrashService
     {
         Task CloseBet(int betId, int gameId, string ownerId);
-        Task<CrashGame> CreateGame();
-        Task<CrashGameResult> DetermineLosers(int gameId);
-        Task<CrashGame> GetCurrentGame();
+        Task<Game> CreateGame();
+        Task<CrashGameResult> StartGame(int gameId);
+        Task<Game> GetCurrentGame();
         Task MakeBet(decimal bet, int gameId, string ownerId);
     }
 }
